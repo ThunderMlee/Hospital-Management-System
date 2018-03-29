@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HospitalMVC.Models.Doctor>
+
+@{
+	ViewBag.Title = "Doctor Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Doctor List</h2>
+
+<table class="table" border="1">
+	<tr>
+		<td>
+			@Html.DisplayNameFor(model => model.name)
+		</td>
+		<td>
+			@Html.DisplayNameFor(model => model.email)
+		</td>
+
+		<td>
+			@Html.DisplayNameFor(model => model.address)
+		</td>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.email)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.address)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "EditDoctor", new { id = item.Id }) |
+				@Html.ActionLink("Delete", "DeleteDoctor", new { id = item.Id })
+			</td>
+		</tr>
+	}
+
+</table>
+<p>
+	@Html.ActionLink("Add New Doctor", "AddDoctor") |
+	@Html.ActionLink("Back to home page", "AdminIndex")
+</p>

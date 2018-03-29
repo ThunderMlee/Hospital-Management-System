@@ -1,0 +1,190 @@
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\ApplicationInsights.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\HospitalMVC.dll.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\HospitalMVC.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\HospitalMVC.pdb
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csc.exe
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csc.exe.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csc.rsp
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csi.exe
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csi.exe.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\csi.rsp
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.Win32.Primitives.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.AppContext.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Collections.Immutable.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Console.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.Process.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.StackTrace.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.Compression.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.Primitives.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.Pipes.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.AccessControl.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Claims.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Encoding.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Primitives.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Principal.Windows.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Text.Encoding.CodePages.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Threading.Thread.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.ValueTuple.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.ReaderWriter.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XmlDocument.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XPath.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XPath.XDocument.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\vbc.exe
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\vbc.exe.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\vbc.rsp
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\VBCSCompiler.exe
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\roslyn\VBCSCompiler.exe.config
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Antlr3.Runtime.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\EntityFramework.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\EntityFramework.SqlServer.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Web.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.WindowsServer.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.ApplicationInsights.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.Web.Infrastructure.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Newtonsoft.Json.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Helpers.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Mvc.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Optimization.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Razor.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Deployment.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Razor.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\WebGrease.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\EntityFramework.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\EntityFramework.SqlServer.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Helpers.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Mvc.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Optimization.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.Razor.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Deployment.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Razor.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Antlr3.Runtime.pdb
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Newtonsoft.Json.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.ApplicationInsights.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.WindowsServer.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Web.xml
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csprojResolveAssemblyReference.cache
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csproj.CoreCompileInputs.cache
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csproj.CopyComplete
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.dll
+c:\users\jeremy chen\source\repos\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.pdb
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.ValueTuple.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\ApplicationInsights.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\HospitalMVC.dll.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\HospitalMVC.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\HospitalMVC.pdb
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csc.exe
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csc.exe.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csc.rsp
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csi.exe
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csi.exe.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\csi.rsp
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.AppContext.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Console.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.Compression.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.IO.Pipes.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Claims.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Threading.Thread.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XPath.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\vbc.exe
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\vbc.exe.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\vbc.rsp
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Antlr3.Runtime.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\EntityFramework.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\EntityFramework.SqlServer.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Web.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Newtonsoft.Json.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Helpers.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Mvc.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Optimization.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Razor.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\WebGrease.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\EntityFramework.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Helpers.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Mvc.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Optimization.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.Razor.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Antlr3.Runtime.pdb
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Newtonsoft.Json.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\bin\Microsoft.AI.Web.xml
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csprojResolveAssemblyReference.cache
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csproj.CoreCompileInputs.cache
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.csproj.CopyComplete
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.dll
+C:\Users\shans\Documents\Visual Studio 2017\HospitalMVC\HospitalMVC\obj\Debug\HospitalMVC.pdb

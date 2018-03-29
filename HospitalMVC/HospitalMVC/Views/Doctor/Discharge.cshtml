@@ -1,0 +1,60 @@
+﻿@model HospitalMVC.Models.Patient
+@{
+	ViewBag.Title = "Discharge";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Discharge Patient</h2>
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.name)
+	@Html.HiddenFor(model => model.address)
+	@Html.HiddenFor(model => model.telephone)
+	@Html.HiddenFor(model => model.doctorId)
+	@Html.HiddenFor(model => model.VisitorHis)
+	@Html.HiddenFor(model => model.password)
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.discharged, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownList("discharged", new List<SelectListItem> {
+			new SelectListItem { Text = "Yes", Value = "Yes" },
+			new SelectListItem { Text = "No", Value = "No" },
+			}, "discharge patient")
+			@Html.ValidationMessageFor(model => model.discharged, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Discharge" class="btn btn-default" />
+		</div>
+	</div>
+</div>
+	}
+
+	<div>
+		@Html.ActionLink("Back to Index", "Index", new { id = Session["userID"] })
+	</div>
+
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+	@section Scripts {
+		@Scripts.Render("~/bundles/jqueryval")
+	}
