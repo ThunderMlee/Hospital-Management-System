@@ -1,0 +1,67 @@
+﻿@model HospitalMVC.Models.Assignment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Assignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.IsAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile1.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile1.IsAdmin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

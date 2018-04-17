@@ -59,6 +59,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,26 +150,46 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DoctorController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PatientController.cs" />
-    <Compile Include="Controllers\VisitController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\AssignmentsController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\VisitHistoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\DoctorContext.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\PatientContext.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Visit.cs" />
-    <Compile Include="Models\VisitContext.cs" />
+    <Compile Include="Models\Appointment.cs">
+      <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Assignment.cs">
+      <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VisitHistory.cs">
+      <DependentUpon>HospitalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
+    <Content Include="App_Data\HospitalDB.mdf" />
+    <Content Include="App_Data\HospitalDB_log.ldf">
+      <DependentUpon>HospitalDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -175,11 +197,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\HospitalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalModel.edmx</DependentUpon>
+      <LastGenOutput>HospitalModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\HospitalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalModel.edmx</DependentUpon>
+      <LastGenOutput>HospitalModel.cs</LastGenOutput>
+    </Content>
     <Content Include="ReleaseNotes.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\HospitalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HospitalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\HospitalModel.edmx.diagram">
+      <DependentUpon>HospitalModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -203,29 +242,31 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\AdminIndex.cshtml" />
-    <Content Include="Views\Home\AddDoctor.cshtml" />
-    <Content Include="Views\Doctor\EditDoctor.cshtml" />
-    <Content Include="Views\Home\IndexDoc.cshtml" />
-    <Content Include="Views\Doctor\Index.cshtml" />
-    <Content Include="Views\Patient\EditPatient.cshtml" />
-    <Content Include="Views\Patient\Index.cshtml" />
-    <Content Include="Views\Home\CreatePatient.cshtml" />
-    <Content Include="Views\Home\IndexPat.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Visit\Edit.cshtml" />
-    <Content Include="Views\Visit\Index.cshtml" />
-    <Content Include="Views\Visit\Create.cshtml" />
-    <Content Include="Views\Visit\Delete.cshtml" />
-    <Content Include="Views\Doctor\Discharge.cshtml" />
-    <Content Include="Views\Home\DeleteDoctor.cshtml" />
-    <Content Include="Views\Home\DeletePatient.cshtml" />
-    <Content Include="Views\Home\EditDoctor.cshtml" />
-    <Content Include="Views\Home\EditPatient.cshtml" />
+    <Content Include="Views\Profiles\Create.cshtml" />
+    <Content Include="Views\Profiles\Delete.cshtml" />
+    <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Profiles\Edit.cshtml" />
+    <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\Assignments\Create.cshtml" />
+    <Content Include="Views\Assignments\Delete.cshtml" />
+    <Content Include="Views\Assignments\Details.cshtml" />
+    <Content Include="Views\Assignments\Edit.cshtml" />
+    <Content Include="Views\Assignments\Index.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\VisitHistory\Create.cshtml" />
+    <Content Include="Views\VisitHistory\Delete.cshtml" />
+    <Content Include="Views\VisitHistory\Details.cshtml" />
+    <Content Include="Views\VisitHistory\Edit.cshtml" />
+    <Content Include="Views\VisitHistory\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -239,6 +280,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

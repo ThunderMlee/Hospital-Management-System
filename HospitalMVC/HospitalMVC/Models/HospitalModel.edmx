@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Reason" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="PatientFName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PatientLName" Type="varchar" MaxLength="100" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="DoctorFName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DoctorLName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IsAdmin" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="IsDoctor" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VisitHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Reason" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Appointments-DoctorId_ToProfiles-Id">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointments-PatientId_ToProfiles-Id">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assignments-DoctorId_ToProfiles-Id">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Assignments" Type="Self.Assignments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assignments">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assignments-PatientId_ToProfiles-Id">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="Assignments" Type="Self.Assignments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assignments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitHistory-PatientId_ToProfiles-Id">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
+          <End Role="VisitHistory" Type="Self.VisitHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisitHistory">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalDBModelStoreContainer">
+          <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assignments" EntityType="Self.Assignments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitHistory" EntityType="Self.VisitHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Appointments-DoctorId_ToProfiles-Id" Association="Self.FK_Appointments-DoctorId_ToProfiles-Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointments-PatientId_ToProfiles-Id" Association="Self.FK_Appointments-PatientId_ToProfiles-Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assignments-DoctorId_ToProfiles-Id" Association="Self.FK_Assignments-DoctorId_ToProfiles-Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Assignments" EntitySet="Assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assignments-PatientId_ToProfiles-Id" Association="Self.FK_Assignments-PatientId_ToProfiles-Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Assignments" EntitySet="Assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitHistory-PatientId_ToProfiles-Id" Association="Self.FK_VisitHistory-PatientId_ToProfiles-Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="VisitHistory" EntitySet="VisitHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Reason" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Appointments_DoctorId_ToProfiles_Id" FromRole="Appointments" ToRole="Profiles" />
+          <NavigationProperty Name="Profile1" Relationship="Self.FK_Appointments_PatientId_ToProfiles_Id" FromRole="Appointments" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="PatientFName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatientLName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorId" Type="Int32" Nullable="false" />
+          <Property Name="DoctorFName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorLName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_Assignments_DoctorId_ToProfiles_Id" FromRole="Assignments" ToRole="Profiles" />
+          <NavigationProperty Name="Profile1" Relationship="Self.FK_Assignments_PatientId_ToProfiles_Id" FromRole="Assignments" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IsAdmin" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDoctor" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointments_DoctorId_ToProfiles_Id" FromRole="Profiles" ToRole="Appointments" />
+          <NavigationProperty Name="Appointments1" Relationship="Self.FK_Appointments_PatientId_ToProfiles_Id" FromRole="Profiles" ToRole="Appointments" />
+          <NavigationProperty Name="Assignments" Relationship="Self.FK_Assignments_DoctorId_ToProfiles_Id" FromRole="Profiles" ToRole="Assignments" />
+          <NavigationProperty Name="Assignments1" Relationship="Self.FK_Assignments_PatientId_ToProfiles_Id" FromRole="Profiles" ToRole="Assignments" />
+          <NavigationProperty Name="VisitHistories" Relationship="Self.FK_VisitHistory_PatientId_ToProfiles_Id" FromRole="Profiles" ToRole="VisitHistory" />
+        </EntityType>
+        <EntityType Name="VisitHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Reason" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK_VisitHistory_PatientId_ToProfiles_Id" FromRole="VisitHistory" ToRole="Profiles" />
+        </EntityType>
+        <Association Name="FK_Appointments_DoctorId_ToProfiles_Id">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointments_PatientId_ToProfiles_Id">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Appointments" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assignments_DoctorId_ToProfiles_Id">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Assignments" Type="Self.Assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assignments">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assignments_PatientId_ToProfiles_Id">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Assignments" Type="Self.Assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Assignments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitHistory_PatientId_ToProfiles_Id">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="1" />
+          <End Role="VisitHistory" Type="Self.VisitHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisitHistory">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Assignments" EntityType="Self.Assignment" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="VisitHistories" EntityType="Self.VisitHistory" />
+          <AssociationSet Name="FK_Appointments_DoctorId_ToProfiles_Id" Association="Self.FK_Appointments_DoctorId_ToProfiles_Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointments_PatientId_ToProfiles_Id" Association="Self.FK_Appointments_PatientId_ToProfiles_Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assignments_DoctorId_ToProfiles_Id" Association="Self.FK_Assignments_DoctorId_ToProfiles_Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Assignments" EntitySet="Assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assignments_PatientId_ToProfiles_Id" Association="Self.FK_Assignments_PatientId_ToProfiles_Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Assignments" EntitySet="Assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitHistory_PatientId_ToProfiles_Id" Association="Self.FK_VisitHistory_PatientId_ToProfiles_Id">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="VisitHistory" EntitySet="VisitHistories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalDBModelStoreContainer" CdmEntityContainer="HospitalDBEntities">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="HospitalDBModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="HospitalDBModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="PatientFName" ColumnName="PatientFName" />
+                <ScalarProperty Name="PatientLName" ColumnName="PatientLName" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="DoctorFName" ColumnName="DoctorFName" />
+                <ScalarProperty Name="DoctorLName" ColumnName="DoctorLName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="HospitalDBModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsDoctor" ColumnName="IsDoctor" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitHistories">
+            <EntityTypeMapping TypeName="HospitalDBModel.VisitHistory">
+              <MappingFragment StoreEntitySet="VisitHistory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

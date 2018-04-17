@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HospitalMVC.Models.Assignment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.IsAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile1.IsAdmin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.IsAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile1.IsAdmin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
