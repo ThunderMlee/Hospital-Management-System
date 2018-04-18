@@ -11,6 +11,7 @@
     <Property Name="Reason" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Profile" Relationship="Self.FK_Appointments_DoctorId_ToProfiles_Id" FromRole="Appointments" ToRole="Profiles" />
     <NavigationProperty Name="Profile1" Relationship="Self.FK_Appointments_PatientId_ToProfiles_Id" FromRole="Appointments" ToRole="Profiles" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
   </EntityType>
   <EntityType Name="Assignment">
     <Key>

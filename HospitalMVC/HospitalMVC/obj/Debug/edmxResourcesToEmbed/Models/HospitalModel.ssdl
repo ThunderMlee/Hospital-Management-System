@@ -8,6 +8,7 @@
     <Property Name="PatientId" Type="int" Nullable="false" />
     <Property Name="DoctorId" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
     <Property Name="Reason" Type="varchar" MaxLength="1000" Nullable="false" />
   </EntityType>
   <EntityType Name="Assignments">

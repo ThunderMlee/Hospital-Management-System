@@ -19,6 +19,7 @@ namespace HospitalMVC.Models
         public int DoctorId { get; set; }
         public System.DateTime Date { get; set; }
         public string Reason { get; set; }
+        public System.TimeSpan Time { get; set; }
     
         public virtual Profile Profile { get; set; }
         public virtual Profile Profile1 { get; set; }
