@@ -15,9 +15,14 @@ namespace HospitalMVC.Controllers
         private HospitalDBEntities db = new HospitalDBEntities();
 
         // GET: Profiles
-        public ActionResult Index()
+        public ActionResult PatientIndex()
         {
-            return View(db.Profiles.ToList());
+            return View(db.Profiles.ToList().Where(patient => patient.IsDoctor.Contains("NO") && patient.IsAdmin.Contains("NO")));
+        }
+
+        public ActionResult DoctorIndex()
+        {
+            return View(db.Profiles.ToList().Where(doc => doc.IsDoctor.Contains("YES") && doc.IsAdmin.Contains("NO")));
         }
 
         // GET: Profiles/Details/5
@@ -123,5 +128,44 @@ namespace HospitalMVC.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public bool confirmLogin(string[] credentials)
+        {
+            List<Profile> list = db.Profiles.ToList();
+
+            try
+            {
+                Profile profile = list.Find(prof => prof.Email.Contains(credentials[0]) && prof.Password.Contains(credentials[1]));
+
+                Session["Id"] = profile.Id;
+                Session["Name"] = profile.FirstName + " " + profile.LastName;
+
+                switch (profile.IsAdmin)
+                {
+                    case "YES":
+                        Session["Role"] = "ADMIN";
+                        break;
+                    case "NO":
+                        if (profile.IsDoctor.Contains("YES"))
+                        {
+                            Session["Role"] = "DOCTOR";
+                        }
+                        else if (profile.IsDoctor.Contains("NO"))
+                        {
+                            Session["Role"] = "USER";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                return true;
+            }
+            catch (ArgumentNullException e)
+            {
+                return false;
+            }
+        }
+
     }
 }

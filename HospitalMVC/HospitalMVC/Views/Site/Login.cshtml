@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@Html.BeginForm("tryLogin", "Site")
+@Html.Label("Email: ") @Html.TextBox("email")
+@Html.Label("Password: ") @Html.TextBox("pass")
