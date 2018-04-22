@@ -2,10 +2,6 @@
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
-	if ((int)Session["userID"] < 1000)
-	{
-		Response.Redirect("~/Doctor/Index");
-	}
 }
 
 <h2>Hi patient</h2>

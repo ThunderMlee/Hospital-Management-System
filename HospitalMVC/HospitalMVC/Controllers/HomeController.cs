@@ -13,7 +13,7 @@ namespace HospitalMVC.Controllers
         PatientContext dbp = new PatientContext();
 
 		//GET general Index
-		public ActionResult Index()
+		public ActionResult Home()
         {
             return View();
         }
@@ -73,8 +73,12 @@ namespace HospitalMVC.Controllers
 
 		public ActionResult Login(User userModel)
 		{
-			User userDetails = new User() { Id = -1 };
+            if (Session["userId"] != null) return RedirectToAction("Index");
+
+            User userDetails = new User() { Id = -1 };
 			if(userModel.Id == 0 && userModel.password == "admin") return RedirectToAction("AdminIndex");
+            
+
 			if (userModel.Id > 999)
 			{
 				using (PatientContext dbp = new PatientContext())
@@ -84,6 +88,7 @@ namespace HospitalMVC.Controllers
 					if (userDetails != null)
 					{
 						Session["userID"] = userDetails.Id;
+                        Session["role"] = "Patient";
 						return RedirectToAction("Index", "Patient");
 					}
 				}
@@ -96,13 +101,22 @@ namespace HospitalMVC.Controllers
 					if (userDetails != null)
 					{
 						Session["userID"] = userDetails.Id;
+                        Session["role"] = "Doctor";
 						return RedirectToAction("Index", "Doctor");
 					}
 				}
 			}
+
 			return View("Login", userModel);
-			
 		}
+
+        public ActionResult Logout()
+        {
+            Session.Remove("userId");
+            Session.Remove("role");
+
+            return RedirectToAction("Index");
+        }
 
 		//edit doctor
 		public ActionResult EditDoctor(int Id)
@@ -136,13 +150,13 @@ namespace HospitalMVC.Controllers
 		}
 
 		//edit patient
-		public ActionResult EditPatient(int Id)
+		public ActionResult EditProfilePatient(int Id)
 		{
 			Patient patient = dbp.Patients.Find(Id);
 			return View(patient);
 		}
 		[HttpPost]
-		public ActionResult EditPatient(Patient patient)
+		public ActionResult EditProfilePatient(Patient patient)
 		{
 			dbp.Entry(patient).State = System.Data.Entity.EntityState.Modified;
 			dbp.SaveChanges();
