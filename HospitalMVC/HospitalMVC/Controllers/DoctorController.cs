@@ -17,6 +17,8 @@ namespace HospitalMVC.Controllers
 		// GET: Doctor Index
 		public ActionResult Index()
         {
+            if (Session["role"].Equals("Patient")) return RedirectToAction("Index", "Patient");
+
             return View();
         }
 		//Edit doctor information
