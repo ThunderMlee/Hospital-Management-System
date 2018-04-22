@@ -12,12 +12,12 @@ namespace HospitalMVC.Controllers
         DoctorContext db = new DoctorContext();
         PatientContext dbp = new PatientContext();
 
-		//GET general Index
+		//GET Home
 		public ActionResult Home()
         {
             return View();
         }
-        //GET admin Index
+        //GET Admin Index
         public ActionResult AdminIndex()
         {
             return View();
@@ -115,10 +115,10 @@ namespace HospitalMVC.Controllers
             Session.Remove("userId");
             Session.Remove("role");
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
 
-		//edit doctor
+		//EDIT Doctor
 		public ActionResult EditDoctor(int Id)
 		{
 			Doctor doctor = db.Doctors.Find(Id);
@@ -133,7 +133,7 @@ namespace HospitalMVC.Controllers
 			return RedirectToAction("IndexDoc");
 		}
 
-		//delete doctor
+		//DELETE Doctor
 		[HttpGet]
 		public ActionResult DeleteDoctor(int Id)
 		{
@@ -149,14 +149,14 @@ namespace HospitalMVC.Controllers
 			return RedirectToAction("IndexDoc");
 		}
 
-		//edit patient
-		public ActionResult EditProfilePatient(int Id)
+		//EDIT Patient
+		public ActionResult EditPatient(int Id)
 		{
 			Patient patient = dbp.Patients.Find(Id);
 			return View(patient);
 		}
 		[HttpPost]
-		public ActionResult EditProfilePatient(Patient patient)
+		public ActionResult EditPatient(Patient patient)
 		{
 			dbp.Entry(patient).State = System.Data.Entity.EntityState.Modified;
 			dbp.SaveChanges();
@@ -164,7 +164,7 @@ namespace HospitalMVC.Controllers
 			return RedirectToAction("IndexPat");
 		}
 
-		//delete patient
+		//DELETE Patient
 		[HttpGet]
 		public ActionResult DeletePatient(int Id)
 		{

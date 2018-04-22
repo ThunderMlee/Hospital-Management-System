@@ -6,7 +6,7 @@
 
 <h2>Hi patient</h2>
 <p>
-    @Html.ActionLink("Update profile", "EditPatient", new { id = Session["userID"] })
+    @Html.ActionLink("Update profile", "EditPatientProfile", new { id = Session["userID"] })
 </p>
 <p>
 	@Html.ActionLink("View Visit History", "Index", "Visit", new { id = Session["userID"] }, null)

@@ -23,13 +23,13 @@ namespace HospitalMVC.Controllers
         }
 		//Edit doctor information
         [HttpGet]
-        public ActionResult EditDoctor(int Id)
+        public ActionResult EditDoctorProfile(int Id)
         {
             Doctor doctor = db.Doctors.Find(Id);
             return View(doctor);
         }
         [HttpPost]
-        public ActionResult EditDoctor(Doctor doctor)
+        public ActionResult EditDoctorProfile(Doctor doctor)
         {
             db.Entry(doctor).State = EntityState.Modified;
             db.SaveChanges();

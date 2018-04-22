@@ -14,8 +14,10 @@ namespace HospitalMVC.Models
 	{
 		[Required(ErrorMessage = "This field is required")]
 		public string name { get; set; }
+
 		[Required(ErrorMessage = "This field is required")]
 		public string email { get; set; }
+
 		[Required(ErrorMessage = "This field is required")]
 		public string address { get; set; }
 	}

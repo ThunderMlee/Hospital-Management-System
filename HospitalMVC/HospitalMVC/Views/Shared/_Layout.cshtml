@@ -24,11 +24,16 @@
                     @{ if (Session["userId"] != null && Session["role"].Equals("Doctor"))
                         {
                             <li>@Html.ActionLink("Options", "Index", "Doctor")</li>
+                            <li>@Html.ActionLink("Calendar", "Calendar", "Events")</li>
+                            <li>@Html.ActionLink("Update profile", "EditDoctorProfile", "Doctor", new { id = Session["userID"] },null)</li>
                             <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                            
                         }
                         else if (Session["userId"] != null && Session["role"].Equals("Patient"))
                         {
                             <li>@Html.ActionLink("Options", "Index", "Patient")</li>
+                            <li>@Html.ActionLink("Calendar", "Calendar", "Events")</li>
+                            <li>@Html.ActionLink("Update profile", "EditPatientProfile", "Patient", new { id = Session["userID"] },null)</li>
                             <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
                         }
                         else
