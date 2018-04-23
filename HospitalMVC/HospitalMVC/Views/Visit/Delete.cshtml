@@ -1,24 +1,57 @@
-﻿@model HospitalMVC.Models.Visit
+﻿@model HospitalMVC.Models.visitTbl
+
 @{
-	ViewBag.Title = "DeletePatient";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DeletePatient</h2>
-
+<h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-	<hr />
-	
+    <h4>visitTbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
 
-	@using (Html.BeginForm())
-	{
-		@Html.AntiForgeryToken()
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
 
-		<div class="form-actions no-color">
-			<input type="submit" value="Delete" class="btn btn-default" /> |
-			@Html.ActionLink("Back to List", "Index")
-		</div>
-	}
+        <dt>
+            @Html.DisplayNameFor(model => model.details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctorTbl.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctorTbl.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patientTbl.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientTbl.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>

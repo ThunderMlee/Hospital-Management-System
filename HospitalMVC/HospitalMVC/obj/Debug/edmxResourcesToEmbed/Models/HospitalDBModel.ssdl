@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doctorTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="Start" Type="datetime" Nullable="false" />
+    <Property Name="End" Type="datetime" />
+    <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsFullDay" Type="bit" Nullable="false" />
+    <Property Name="DoctorID" Type="varchar" MaxLength="50" />
+    <Property Name="PatientID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="patientTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="doctorId" Type="int" />
+    <Property Name="VisitorHis" Type="nvarchar" MaxLength="50" />
+    <Property Name="discharged" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="visitTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doctorId" Type="int" />
+    <Property Name="patientId" Type="int" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="details" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_patientTbl-doctorId_TodoctorTbl-Id">
+    <End Role="doctorTbl" Type="Self.doctorTbl" Multiplicity="0..1" />
+    <End Role="patientTbl" Type="Self.patientTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctorTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="patientTbl">
+        <PropertyRef Name="doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visitTbl-doctorId_TopatientTbl-Id">
+    <End Role="patientTbl" Type="Self.patientTbl" Multiplicity="0..1" />
+    <End Role="visitTbl" Type="Self.visitTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patientTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="visitTbl">
+        <PropertyRef Name="doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visitTbl-patientId_TodoctorTbl-Id">
+    <End Role="doctorTbl" Type="Self.doctorTbl" Multiplicity="0..1" />
+    <End Role="visitTbl" Type="Self.visitTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctorTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="visitTbl">
+        <PropertyRef Name="patientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="doctorTbl" EntityType="Self.doctorTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="patientTbl" EntityType="Self.patientTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="visitTbl" EntityType="Self.visitTbl" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_patientTbl-doctorId_TodoctorTbl-Id" Association="Self.FK_patientTbl-doctorId_TodoctorTbl-Id">
+      <End Role="doctorTbl" EntitySet="doctorTbl" />
+      <End Role="patientTbl" EntitySet="patientTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visitTbl-doctorId_TopatientTbl-Id" Association="Self.FK_visitTbl-doctorId_TopatientTbl-Id">
+      <End Role="patientTbl" EntitySet="patientTbl" />
+      <End Role="visitTbl" EntitySet="visitTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visitTbl-patientId_TodoctorTbl-Id" Association="Self.FK_visitTbl-patientId_TodoctorTbl-Id">
+      <End Role="doctorTbl" EntitySet="doctorTbl" />
+      <End Role="visitTbl" EntitySet="visitTbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

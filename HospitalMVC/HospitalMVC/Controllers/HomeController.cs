@@ -9,11 +9,10 @@ namespace HospitalMVC.Controllers
 {
     public class HomeController : Controller
     {
-        DoctorContext db = new DoctorContext();
-        PatientContext dbp = new PatientContext();
+        private Database1Entities db = new Database1Entities();
 
-		//GET Home
-		public ActionResult Home()
+        //GET Home
+        public ActionResult Home()
         {
             return View();
         }
@@ -22,11 +21,11 @@ namespace HospitalMVC.Controllers
         {
             return View();
         }
-     
+
         // GET: Doctor
         public ActionResult IndexDoc()
         {
-            return View(db.Doctors.ToList());
+            return View(db.doctorTbls.ToList());
         }
 
         [HttpGet]
@@ -35,10 +34,10 @@ namespace HospitalMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddDoctor(Doctor doctor)
+        public ActionResult AddDoctor(doctorTbl doctor)
         {
             //insert into table
-            db.Doctors.Add(doctor);
+            db.doctorTbls.Add(doctor);
             db.SaveChanges();
 
             return RedirectToAction("IndexDoc");
@@ -48,7 +47,7 @@ namespace HospitalMVC.Controllers
         //GET Patient
         public ActionResult IndexPat()
         {
-            return View(dbp.Patients.ToList());
+            return View(db.patientTbls.ToList());
         }
 
 
@@ -62,53 +61,58 @@ namespace HospitalMVC.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult CreatePatient(Patient patient)
+        public ActionResult CreatePatient(patientTbl patient)
         {
-			patient.discharged = "No";
-            dbp.Patients.Add(patient);
-            dbp.SaveChanges();
+            patient.discharged = "No";
+            db.patientTbls.Add(patient);
+            db.SaveChanges();
 
             return RedirectToAction("IndexPat");
         }
 
-		public ActionResult Login(User userModel)
-		{
+        /*public ActionResult Login(patientTbl patientModel)
+        {
             if (Session["userId"] != null) return RedirectToAction("Index");
 
-            User userDetails = new User() { Id = -1 };
-			if(userModel.Id == 0 && userModel.password == "admin") return RedirectToAction("AdminIndex");
+            patientTbl patientDetails = new patientTbl() { Id = -1 };
+            if (patientModel.Id == 0 && patientModel.password == "admin") return RedirectToAction("AdminIndex");
+
+            if (patientModel.Id > 999)
+            {
+                patientDetails = db.patientTbls.Where(x => x.Id == patientModel.Id && x.password == patientModel.password).FirstOrDefault();
+
+                if (patientDetails != null)
+                {
+                    Session["userID"] = patientDetails.Id;
+                    Session["role"] = "Patient";
+                    return RedirectToAction("Index", "Patient");
+                }
+            }
+            return View("Login", patientModel);
+        }*/
+
+        public ActionResult Login(doctorTbl doctorModel)
+        {
+            if (Session["userId"] != null) return RedirectToAction("Index");
+
+            doctorTbl doctorDetails = new doctorTbl() { Id = -1 };
+            if (doctorModel.Id == 0 && doctorModel.password == "admin") return RedirectToAction("AdminIndex");
+
             
+            if (doctorModel.Id > 0)
+            {
+                doctorDetails = db.doctorTbls.Where(x => x.Id == doctorModel.Id && x.password == doctorModel.password).FirstOrDefault();
+                if (doctorDetails != null)
+                {
+                    Session["userID"] = doctorDetails.Id;
+                    Session["role"] = "Doctor";
+                    return RedirectToAction("Index", "Doctor");
+                }
+                
+            }
 
-			if (userModel.Id > 999)
-			{
-				using (PatientContext dbp = new PatientContext())
-				{
-					userDetails = dbp.Patients.Where(x => x.Id == userModel.Id && x.password == userModel.password).FirstOrDefault();
-				
-					if (userDetails != null)
-					{
-						Session["userID"] = userDetails.Id;
-                        Session["role"] = "Patient";
-						return RedirectToAction("Index", "Patient");
-					}
-				}
-			}
-			if (userModel.Id > 0)
-			{
-				using (DoctorContext db = new DoctorContext())
-				{
-					userDetails = db.Doctors.Where(x => x.Id == userModel.Id && x.password == userModel.password).FirstOrDefault();
-					if (userDetails != null)
-					{
-						Session["userID"] = userDetails.Id;
-                        Session["role"] = "Doctor";
-						return RedirectToAction("Index", "Doctor");
-					}
-				}
-			}
-
-			return View("Login", userModel);
-		}
+            return View("Login", doctorModel);
+        }
 
         public ActionResult Logout()
         {
@@ -118,68 +122,68 @@ namespace HospitalMVC.Controllers
             return RedirectToAction("Home");
         }
 
-		//EDIT Doctor
-		public ActionResult EditDoctor(int Id)
-		{
-			Doctor doctor = db.Doctors.Find(Id);
-			return View(doctor);
-		}
-		[HttpPost]
-		public ActionResult EditDoctor(Doctor doctor)
-		{
-			db.Entry(doctor).State = System.Data.Entity.EntityState.Modified;
-			db.SaveChanges();
+        //EDIT Doctor
+        public ActionResult EditDoctor(int Id)
+        {
+            doctorTbl doctor = db.doctorTbls.Find(Id);
+            return View(doctor);
+        }
+        [HttpPost]
+        public ActionResult EditDoctor(doctorTbl doctor)
+        {
+            db.Entry(doctor).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
 
-			return RedirectToAction("IndexDoc");
-		}
+            return RedirectToAction("IndexDoc");
+        }
 
-		//DELETE Doctor
-		[HttpGet]
-		public ActionResult DeleteDoctor(int Id)
-		{
-			Doctor doctor = db.Doctors.Find(Id);
-			return View(doctor);
-		}
-		[HttpPost, ActionName("DeleteDoctor")]
-		public ActionResult DeleteConfirmed(int Id)
-		{
-			Doctor doctor = db.Doctors.Find(Id);
-			db.Doctors.Remove(doctor);
-			db.SaveChanges();
-			return RedirectToAction("IndexDoc");
-		}
+        //DELETE Doctor
+        [HttpGet]
+        public ActionResult DeleteDoctor(int Id)
+        {
+            doctorTbl doctor = db.doctorTbls.Find(Id);
+            return View(doctor);
+        }
+        [HttpPost, ActionName("DeleteDoctor")]
+        public ActionResult DeleteConfirmed(int Id)
+        {
+            doctorTbl doctor = db.doctorTbls.Find(Id);
+            db.doctorTbls.Remove(doctor);
+            db.SaveChanges();
+            return RedirectToAction("IndexDoc");
+        }
 
-		//EDIT Patient
-		public ActionResult EditPatient(int Id)
-		{
-			Patient patient = dbp.Patients.Find(Id);
-			return View(patient);
-		}
-		[HttpPost]
-		public ActionResult EditPatient(Patient patient)
-		{
-			dbp.Entry(patient).State = System.Data.Entity.EntityState.Modified;
-			dbp.SaveChanges();
+        //EDIT Patient
+        public ActionResult EditPatient(int Id)
+        {
+            patientTbl patient = db.patientTbls.Find(Id);
+            return View(patient);
+        }
+        [HttpPost]
+        public ActionResult EditPatient(patientTbl patient)
+        {
+            db.Entry(patient).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
 
-			return RedirectToAction("IndexPat");
-		}
+            return RedirectToAction("IndexPat");
+        }
 
-		//DELETE Patient
-		[HttpGet]
-		public ActionResult DeletePatient(int Id)
-		{
-			Patient patient = dbp.Patients.Find(Id);
-			return View(patient);
-		}
+        //DELETE Patient
+        [HttpGet]
+        public ActionResult DeletePatient(int Id)
+        {
+            patientTbl patient = db.patientTbls.Find(Id);
+            return View(patient);
+        }
 
-		[HttpPost, ActionName("DeletePatient")]
-		public ActionResult DeletePConfirmed(int Id)
-		{
-			Patient patient = dbp.Patients.Find(Id);
-			dbp.Patients.Remove(patient);
-			dbp.SaveChanges();
-			return RedirectToAction("IndexPat");
-		}
+        [HttpPost, ActionName("DeletePatient")]
+        public ActionResult DeletePConfirmed(int Id)
+        {
+            patientTbl patient = db.patientTbls.Find(Id);
+            db.patientTbls.Remove(patient);
+            db.SaveChanges();
+            return RedirectToAction("IndexPat");
+        }
 
-	}
+    }
 }

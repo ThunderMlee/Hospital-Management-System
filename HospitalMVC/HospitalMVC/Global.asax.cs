@@ -18,7 +18,7 @@ namespace HospitalMVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer<EventContext>(new DropCreateDatabaseIfModelChanges<EventContext>());
+            //Database.SetInitializer<EventContext>(new DropCreateDatabaseIfModelChanges<EventContext>());
         }
     }
 }

@@ -13,7 +13,7 @@ namespace HospitalMVC.Controllers
 {
     public class EventsController : Controller
     {
-        private EventContext db = new EventContext();
+        private Database1Entities db = new Database1Entities();
 
         // GET: Events
         public ActionResult Index()
@@ -192,7 +192,7 @@ namespace HospitalMVC.Controllers
         public JsonResult DeleteEvent(int eventID)
         {
             var status = false;
-            using (EventContext dc = new EventContext())
+            using (Database1Entities dc = new Database1Entities())
             {
                 var v = dc.Events.Where(a => a.EventID == eventID).FirstOrDefault();
                 if (v != null)

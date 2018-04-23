@@ -1,76 +1,52 @@
-﻿@using HospitalMVC.Models;
-@model IEnumerable<Visit>
+﻿@model IEnumerable<HospitalMVC.Models.visitTbl>
 
 @{
-	ViewBag.Title = "Visit Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Visit List</h2>
+<h2>Index</h2>
 
 <p>
-	@using (Html.BeginForm("Index","Visit", FormMethod.Get))
-	{
-		<b>Search By:</b>
-		@Html.RadioButton("searchBy", "Id", true) <text>Id</text>
-		@Html.RadioButton("searchBy", "Details") <text>Details</text><br />
-		@Html.TextBox("search") <input type="submit" value="Search" />
-	}
-	
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.doctorTbl.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patientTbl.name)
+        </th>
+        <th></th>
+    </tr>
 
-<table class="table" border="1">
-	<tr>
-		<td>
-			@Html.DisplayNameFor(model => model.doctorId)
-		</td>
-		<td>
-			@Html.DisplayNameFor(model => model.patientId)
-		</td>
-		<td>
-			@Html.DisplayNameFor(model => model.date)
-		</td>
-		<td>
-			@Html.DisplayNameFor(model => model.details)
-		</td>
-		<td></td>
-	</tr>
-
-	@foreach (Visit item in @Model)
-	{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.doctorId)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.patientId)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.date)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.details)
-			</td>
-			<td>
-				@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-				@Html.ActionLink("Delete", "Delete", new { id = item.Id })
-			</td>
-		</tr>
-	}
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.doctorTbl.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patientTbl.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
 
 </table>
-
-
-
-<p>
-	@{
-		if ((int)Session["userID"] < 1000)
-		{
-			@Html.ActionLink("Back to main page", "Index", "Doctor")
-		}
-		if ((int)Session["userID"] > 999)
-		{
-			@Html.ActionLink("Back to main page", "Index", "Patient")
-		}
-	}
-</p>

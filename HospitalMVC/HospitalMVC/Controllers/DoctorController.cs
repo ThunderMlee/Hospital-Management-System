@@ -11,25 +11,24 @@ namespace HospitalMVC.Controllers
 {
     public class DoctorController : Controller
     {
-        DoctorContext db = new DoctorContext();
-        PatientContext dbp = new PatientContext();
+        private Database1Entities db = new Database1Entities();
 
-		// GET: Doctor Index
-		public ActionResult Index()
+        // GET: Doctor Index
+        public ActionResult Index()
         {
             if (Session["role"].Equals("Patient")) return RedirectToAction("Index", "Patient");
 
             return View();
         }
-		//Edit doctor information
+        //Edit doctor information
         [HttpGet]
         public ActionResult EditDoctorProfile(int Id)
         {
-            Doctor doctor = db.Doctors.Find(Id);
+            doctorTbl doctor = db.doctorTbls.Find(Id);
             return View(doctor);
         }
         [HttpPost]
-        public ActionResult EditDoctorProfile(Doctor doctor)
+        public ActionResult EditDoctorProfile(doctorTbl doctor)
         {
             db.Entry(doctor).State = EntityState.Modified;
             db.SaveChanges();
@@ -37,23 +36,23 @@ namespace HospitalMVC.Controllers
             return RedirectToAction("Index", new { id = Session["userID"] });
         }
 
-		//Discharge patient
-		[HttpGet]
-		public ActionResult Discharge(int? Id)
-		{
-			Patient patient = dbp.Patients.Find(Id);
-			return View(patient);
-		}
-		[HttpPost]
-		public ActionResult Discharge(Patient patient1)
-		{
-			Patient patient = dbp.Patients.Find(patient1.Id);
-			patient.discharged = patient1.discharged;
-			dbp.Entry(patient).State = System.Data.Entity.EntityState.Modified;
-			dbp.SaveChanges();
+        //Discharge patient
+        [HttpGet]
+        public ActionResult Discharge(int? Id)
+        {
+            patientTbl patient = db.patientTbls.Find(Id);
+            return View(patient);
+        }
+        [HttpPost]
+        public ActionResult Discharge(patientTbl patient1)
+        {
+            patientTbl patient = db.patientTbls.Find(patient1.Id);
+            patient.discharged = patient1.discharged;
+            db.Entry(patient).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
 
-			return RedirectToAction("Index", new { id = Session["userID"] });
-		}
+            return RedirectToAction("Index", new { id = Session["userID"] });
+        }
 
-	}
+    }
 }

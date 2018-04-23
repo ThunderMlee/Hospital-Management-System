@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="doctorTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="patientTbls" Relationship="Self.FK_patientTbl_doctorId_TodoctorTbl_Id" FromRole="doctorTbl" ToRole="patientTbl" />
+    <NavigationProperty Name="visitTbls" Relationship="Self.FK_visitTbl_patientId_TodoctorTbl_Id" FromRole="doctorTbl" ToRole="visitTbl" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="End" Type="DateTime" Precision="3" />
+    <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+    <Property Name="DoctorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PatientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="patientTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doctorId" Type="Int32" />
+    <Property Name="VisitorHis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="discharged" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="doctorTbl" Relationship="Self.FK_patientTbl_doctorId_TodoctorTbl_Id" FromRole="patientTbl" ToRole="doctorTbl" />
+    <NavigationProperty Name="visitTbls" Relationship="Self.FK_visitTbl_doctorId_TopatientTbl_Id" FromRole="patientTbl" ToRole="visitTbl" />
+  </EntityType>
+  <EntityType Name="visitTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doctorId" Type="Int32" />
+    <Property Name="patientId" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="doctorTbl" Relationship="Self.FK_visitTbl_patientId_TodoctorTbl_Id" FromRole="visitTbl" ToRole="doctorTbl" />
+    <NavigationProperty Name="patientTbl" Relationship="Self.FK_visitTbl_doctorId_TopatientTbl_Id" FromRole="visitTbl" ToRole="patientTbl" />
+  </EntityType>
+  <Association Name="FK_patientTbl_doctorId_TodoctorTbl_Id">
+    <End Role="doctorTbl" Type="Self.doctorTbl" Multiplicity="0..1" />
+    <End Role="patientTbl" Type="Self.patientTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctorTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="patientTbl">
+        <PropertyRef Name="doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visitTbl_patientId_TodoctorTbl_Id">
+    <End Role="doctorTbl" Type="Self.doctorTbl" Multiplicity="0..1" />
+    <End Role="visitTbl" Type="Self.visitTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctorTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="visitTbl">
+        <PropertyRef Name="patientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visitTbl_doctorId_TopatientTbl_Id">
+    <End Role="patientTbl" Type="Self.patientTbl" Multiplicity="0..1" />
+    <End Role="visitTbl" Type="Self.visitTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patientTbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="visitTbl">
+        <PropertyRef Name="doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="doctorTbls" EntityType="Self.doctorTbl" />
+    <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="patientTbls" EntityType="Self.patientTbl" />
+    <EntitySet Name="visitTbls" EntityType="Self.visitTbl" />
+    <AssociationSet Name="FK_patientTbl_doctorId_TodoctorTbl_Id" Association="Self.FK_patientTbl_doctorId_TodoctorTbl_Id">
+      <End Role="doctorTbl" EntitySet="doctorTbls" />
+      <End Role="patientTbl" EntitySet="patientTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visitTbl_patientId_TodoctorTbl_Id" Association="Self.FK_visitTbl_patientId_TodoctorTbl_Id">
+      <End Role="doctorTbl" EntitySet="doctorTbls" />
+      <End Role="visitTbl" EntitySet="visitTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visitTbl_doctorId_TopatientTbl_Id" Association="Self.FK_visitTbl_doctorId_TopatientTbl_Id">
+      <End Role="patientTbl" EntitySet="patientTbls" />
+      <End Role="visitTbl" EntitySet="visitTbls" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
